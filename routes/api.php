@@ -21,4 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/registrarse', [Usuarios::class, 'registrarse']);
 Route::post('/login', [Usuarios::class, 'login']);
 Route::get('/info', [Usuarios::class, 'info'])->middleware('auth:sanctum');
+Route::post('/cuentaAdafruit', [Usuarios::class, 'cuentaAdafruit'])->middleware('auth:sanctum');
 

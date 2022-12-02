@@ -58,7 +58,16 @@ class Usuarios extends BaseController
         return response()->json([
             "name" => $user->name,
             "email" => $user->email,
-            "phone_number" => $user->phone_number
+            "phone_number" => $user->phone_number,
+            'username' => $user->username,
         ]);
+    }
+    public function cuentaAdafruit(Request $request)
+    {
+        $model = auth()->user();
+        $user = User::find($model->id);
+        $user->username = $request->username;
+        $user->active_key = $request->active_key;
+        $user->save();
     }
 }
